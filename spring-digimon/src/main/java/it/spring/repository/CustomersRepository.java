@@ -9,14 +9,11 @@ import org.springframework.data.repository.query.Param;
 import it.spring.model.Customers;
 
 
-public class CustomersRepository {
-
-	public interface DigimonRepository extends CrudRepository<Customers, Long> {
+public interface CustomersRepository extends CrudRepository<Customers, Long> {
 		
 		@Query(value = "SELECT customers FROM Customers customers WHERE customers.name LIKE '%' || :keyword || '%'"
-				+ " OR customers.quantita LIKE '%' || :keyword || '%'"
-				+ " OR customers.categoria LIKE '%' || :keyword || '%'")
+				+ " OR customers.cognome LIKE '%' || :keyword || '%'"
+				+ " OR customers.eta LIKE '%' || :keyword || '%'")
 		public List<Customers> search(@Param("keyword") String keyword);
-	}
 	
 }

@@ -12,7 +12,10 @@ import it.spring.model.Digimon;
 public interface DigimonRepository extends CrudRepository<Digimon, Long> {
 	
 	@Query(value = "SELECT digimon FROM Digimon digimon WHERE digimon.name LIKE '%' || :keyword || '%'"
-			+ " OR digimon.quantita LIKE '%' || :keyword || '%'"
-			+ " OR digimon.categoria LIKE '%' || :keyword || '%'")
+			+ " OR digimon.hp LIKE '%' || :keyword || '%'"
+			+ " OR digimon.atk LIKE '%' || :keyword || '%'"
+			+ " OR digimon.def LIKE '%' || :keyword || '%'"
+			+ " OR digimon.res LIKE '%' || :keyword || '%'"
+			+ " OR digimon.evoluzione LIKE '%' || :keyword || '%'")
 	public List<Digimon> search(@Param("keyword") String keyword);
 }

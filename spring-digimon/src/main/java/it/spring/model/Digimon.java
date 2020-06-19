@@ -17,11 +17,20 @@ public class Digimon {
 	private double def;
 	private double res;
 	private String evo;
+	private Customers c;
 	
+	public Customers getC() {
+		return c;
+	}
+
+	public void setC(Customers c) {
+		this.c = c;
+	}
+
 	public Digimon() {
 	}
 
-	public Digimon(Long id, String name, double hp, double atk, double def, double res, String evo) {
+	public Digimon(Long id, String name, double hp, double atk, double def, double res, String evo, Customers c) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -30,6 +39,7 @@ public class Digimon {
 		this.def = def;
 		this.res = res;
 		this.evo = evo;
+		this.c = c;
 	}
 
 	public Long getId() {

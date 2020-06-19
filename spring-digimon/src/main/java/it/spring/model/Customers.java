@@ -1,9 +1,12 @@
 package it.spring.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Customers {
@@ -15,7 +18,18 @@ public class Customers {
 	private String nome;
 	private String cognome;
 	private int eta;
+	private List<Digimon> listaDigimon;
 	
+	
+	public List<Digimon> getListaDigimon() {
+		return listaDigimon;
+	}
+	
+	@OneToMany
+	public void setListaDigimon(List<Digimon> listaDigimon) {
+		this.listaDigimon = listaDigimon;
+	}
+
 	public Customers() {
 	}
 

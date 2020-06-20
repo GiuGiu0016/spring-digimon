@@ -6,28 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.spring.model.Digimon;
-import it.spring.repository.DigimonRepository;
+import it.spring.model.Allenatore;
+import it.spring.repository.AllenatoreRepository;
 
 @Service
 @Transactional
-public class DigimonService {
-	@Autowired DigimonRepository repo;
+public class AllenatoreService {
 	
-	public void save(Digimon digimon) {
-		repo.save(digimon);
+	@Autowired AllenatoreRepository repo;
+	
+	public void save(Allenatore allenatore) {
+		repo.save(allenatore);
 	}
 	
-	public List<Digimon> listAll() {
-		return (List<Digimon>) repo.findAll();
+	public List<Allenatore> listAll() {
+		return (List<Allenatore>) repo.findAll();
 	}
 	
-	public Digimon get(Long id) {
+	public Allenatore get(Long id) {
 		return repo.findById(id).get();
 	}
 	
 	public void delete(Long id) {
 		repo.deleteById(id);
 	}
-	
+
 }

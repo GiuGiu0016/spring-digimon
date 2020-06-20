@@ -4,43 +4,43 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Digimon {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
-	private double hp;
-	private double atk;
-	private double def;
-	private double res;
-	private String evo;
-	private Customers c;
+	private String nome;
+	private int hp;
+	private int atk;
+	private int def;
+	private int res;
+	private Evoluzione evo;
+	@ManyToOne
+    @JoinColumn(name="allenatore")
+    private Allenatore allenatore;
 	
-	public Customers getC() {
-		return c;
-	}
-
-	public void setC(Customers c) {
-		this.c = c;
-	}
-
 	public Digimon() {
 	}
 
-	public Digimon(Long id, String name, double hp, double atk, double def, double res, String evo, Customers c) {
+
+
+	protected Digimon(Long id, String nome, int hp, int atk, int def, int res, Evoluzione evo, Allenatore allenatore) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.nome = nome;
 		this.hp = hp;
 		this.atk = atk;
 		this.def = def;
 		this.res = res;
 		this.evo = evo;
-		this.c = c;
+		this.allenatore = allenatore;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -50,55 +50,81 @@ public class Digimon {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public double getHp() {
+	public int getHp() {
 		return hp;
 	}
 
-	public void setHp(double hp) {
+	public void setHp(int hp) {
 		this.hp = hp;
 	}
 
-	public double getAtk() {
+	public int getAtk() {
 		return atk;
 	}
 
-	public void setAtk(double atk) {
+	public void setAtk(int atk) {
 		this.atk = atk;
 	}
 
-	public double getDef() {
+	public int getDef() {
 		return def;
 	}
 
-	public void setDef(double def) {
+	public void setDef(int def) {
 		this.def = def;
 	}
 
-	public double getRes() {
+	public int getRes() {
 		return res;
 	}
 
-	public void setRes(double res) {
+	public void setRes(int res) {
 		this.res = res;
 	}
 
-	public String getEvo() {
+
+
+	public Evoluzione getEvo() {
 		return evo;
 	}
 
-	public void setEvo(String evo) {
+
+
+	public void setEvo(Evoluzione evo) {
 		this.evo = evo;
 	}
 
 
+
+	public Allenatore getAllenatore() {
+		return allenatore;
+	}
+
+
+
+	public void setAllenatore(Allenatore allenatore) {
+		this.allenatore = allenatore;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Digimon [id=" + id + ", nome=" + nome + ", hp=" + hp + ", atk=" + atk + ", def=" + def + ", res=" + res
+				+ ", evo=" + evo + ", allenatore=" + allenatore + "]";
+	}
+	
+	
+
+	
+
+	
 }
-
-
